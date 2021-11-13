@@ -1,13 +1,12 @@
 const db = require('../db/connection');
 const questions = require('../questions');
 
-const department = () => {
-    const sql = `SELECT * FROM department;`;
+const roles = () => {
+    const sql = `SELECT * FROM employee_role;`;
     db.query(sql, (err, rows) => {
         if (err) throw err;
         console.table(rows);
     });
 }
-//questions();
 
-module.exports = department;
+module.exports = roles;

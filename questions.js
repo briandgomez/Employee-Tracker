@@ -1,7 +1,10 @@
 const inquirer = require('inquirer');
-//Redirects users
 const cTable = require('console.table');
 const department = require('./choices/departments');
+const roles = require('./choices/roles');
+const employee = require('./choices/employees');
+const add_department = require('./choices/add-department');
+const add_role = require('./choices/add-role');
 
 const questions = () => {
     return inquirer.prompt([
@@ -19,10 +22,16 @@ const questions = () => {
                     department();
                     break;
                 case 'View all roles':
-                    console.log('This was selected 1');
+                    roles();
                     break;
                 case 'View all employees':
-                    console.log('This was selected 2');
+                    employee();
+                    break;
+                case 'Add a department':
+                    add_department();
+                    break;
+                case 'Add a role':
+                    add_role();
                     break;
                 default:
                     console.log('Default');
