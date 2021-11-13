@@ -13,13 +13,15 @@ CREATE TABLE employee_role (
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(6,0),
     department_id INTEGER,
-    FOREIGN KEY(department_id) REFERENCES department(id)
+    FOREIGN KEY (department_id) REFERENCES department(id) 
 );
 
 CREATE TABLE employee (
-    id INTEGER PRIMARY KEY NOT NULL,
+    id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_id INTEGER, 
-    FOREIGN KEY(role_id) REFERENCES employee_role(department_id)
+    role_id INTEGER,
+    manager_id INTEGER,
+    FOREIGN KEY (role_id) REFERENCES employee_role(department_id),
+    FOREIGN KEY (role_id) REFERENCES employee_role(department_id)
 );
