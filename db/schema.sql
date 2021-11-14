@@ -22,6 +22,9 @@ CREATE TABLE employee (
     last_name VARCHAR(30) NOT NULL,
     role_id INTEGER,
     manager_id INTEGER,
+    title VARCHAR(30) NOT NULL,
+    salary DECIMAL(6,0),
+    department_name VARCHAR(30) NOT NULL,
     FOREIGN KEY (role_id) REFERENCES employee_role(department_id),
-    FOREIGN KEY (role_id) REFERENCES employee_role(department_id)
+    FOREIGN KEY (manager_id) REFERENCES employee(role_id)
 );
