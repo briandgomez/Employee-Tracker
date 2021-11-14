@@ -13,7 +13,7 @@ const update_employee = () => {
         });
         const roleArray = [];
         rows.forEach(function (role) {
-            roleArray.push({ name: role.title, value: role.role_id });
+            roleArray.push({ name: role.title, value: { role_id: role.role_id, title: role.title, dep_name: role.department_name } });
         });
         return inquirer.prompt([
             {
@@ -31,7 +31,7 @@ const update_employee = () => {
         ])
             .then(response => {
                 console.log(response);
-                const sql = `UPDATE employee SET role_id=${response.new_role} WHERE id=${response.id};`;
+                const sql = `UPDATE employee SET role_id=${response.new_role.role_id}, title='${response.new_role.title}', department_name='${response.new_role.dep_name}' WHERE id=${response.id};`;
                 db.query(sql, (err, rows) => {
                     if (err) throw err;
                     const sql = `SELECT * FROM employee;`;
