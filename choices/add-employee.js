@@ -1,5 +1,5 @@
 const db = require('../db/connection');
-const questions = require('../questions');
+const questionsFile = require('../questions');
 const inquirer = require('inquirer');
 
 const add_employee = () => {
@@ -18,7 +18,7 @@ const add_employee = () => {
         });
 
         //console.log(employeeArray);
-        console.log(managerArray);
+        //console.log(managerArray);
         return inquirer.prompt([
             {
                 type: 'input',
@@ -44,13 +44,14 @@ const add_employee = () => {
             }
         ])
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 const sql = `INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES ('${response.first}', '${response.last}',${response.role}, ${response.manager_id});`;
                 db.query(sql, (err, rows) => {
                     if (err) throw err;
                     const sql = `SELECT * FROM employee;`;
                     db.query(sql, (err, rows) => {
                         if (err) throw err;
+                        console.log('\n');
                         console.table(rows);
                     });
                 });
@@ -58,5 +59,5 @@ const add_employee = () => {
     });
 
 }
-
+//questionsFile.questions;
 module.exports = add_employee;

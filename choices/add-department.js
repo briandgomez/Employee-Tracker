@@ -1,5 +1,5 @@
 const db = require('../db/connection');
-const questions = require('../questions');
+const questionsFile = require('../questions');
 const inquirer = require('inquirer');
 
 const add_department = () => {
@@ -19,10 +19,11 @@ const add_department = () => {
                 const sql = `SELECT * FROM department;`;
                 db.query(sql, (err, rows) => {
                     if (err) throw err;
+                    console.log('\n');
                     console.table(rows);
                 });
             });
         })
 }
-
+//questionsFile.questions;
 module.exports = add_department;

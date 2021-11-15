@@ -5,6 +5,8 @@ const roles = require('./choices/roles');
 const employee = require('./choices/employees');
 const add_department = require('./choices/add-department');
 const add_role = require('./choices/add-role');
+const add_employee = require('./choices/add-employee');
+const update_employee = require('./choices/update-employee');
 
 const questions = () => {
     return inquirer.prompt([
@@ -33,10 +35,15 @@ const questions = () => {
                 case 'Add a role':
                     add_role();
                     break;
+                case 'Add an employee':
+                    add_employee();
+                    break;
+                case 'Update an employee role':
+                    update_employee();
+                    break;
                 default:
-                    console.log('Default');
+                    console.log('Select a apropriate option');
             }
         });
 }
-
 module.exports = questions;

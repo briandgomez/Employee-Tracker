@@ -1,25 +1,17 @@
 const db = require('../db/connection');
-const questions = require('../questions');
+const questionsFile = require('../questions');
 const inquirer = require('inquirer');
 
-const depOpt = () => {
-    const sql = `SELECT * FROM department;`;
-    return db.query(sql, (err, rows) => {
-        if (err) throw err;
-        return rows;
-    });
-}
-
 const add_role = () => {
-    //console.log(depOpt());
     const sql = `SELECT * FROM department;`;
     db.query(sql, (err, rows) => {
         if (err) throw err;
         const depArray = [];
-        console.log(rows);
+        //console.log(rows);
         rows.forEach(function(department){
             depArray.push({name: department.department_name, value: department.id});
         });
+        //console.log(depArray);
         return inquirer.prompt([
             {
                 type: 'input',
@@ -46,6 +38,7 @@ const add_role = () => {
                     const sql = `SELECT * FROM employee_role;`;
                     db.query(sql, (err, rows) => {
                         if (err) throw err;
+                        console.log('\n');
                         console.table(rows);
                     });
                 });
@@ -53,5 +46,5 @@ const add_role = () => {
     });
 
 }
-
+//questionsFile.questions;
 module.exports = add_role;

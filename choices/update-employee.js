@@ -1,5 +1,5 @@
 const db = require('../db/connection');
-const questions = require('../questions');
+const questionsFile = require('../questions');
 const inquirer = require('inquirer');
 
 const update_employee = () => {
@@ -30,13 +30,14 @@ const update_employee = () => {
             }
         ])
             .then(response => {
-                console.log(response);
+                //console.log(response);
                 const sql = `UPDATE employee SET role_id=${response.new_role.role_id}, title='${response.new_role.title}', department_name='${response.new_role.dep_name}' WHERE id=${response.id};`;
                 db.query(sql, (err, rows) => {
                     if (err) throw err;
                     const sql = `SELECT * FROM employee;`;
                     db.query(sql, (err, rows) => {
                         if (err) throw err;
+                        console.log('\n');
                         console.table(rows);
                     });
                 });
@@ -44,5 +45,5 @@ const update_employee = () => {
     });
 
 }
-
+//questionsFile.questions;
 module.exports = update_employee;
