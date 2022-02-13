@@ -13,7 +13,7 @@ This application was created using the following:
 * Node.js
 * npm inquirer
 * npm console.table
-* Javascript
+* Javascript ES6
 
 ## Walkthrough Link
 https://watch.screencastify.com/v/XR4mod1Qu42Zus6N20qV
