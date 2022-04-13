@@ -3,7 +3,7 @@ CREATE DATABASE employee_tracker;
 
 USE employee_tracker;
 
---'id','department_name','title', etc. ae all columns
+--'id','department_name','title', etc. are all columns
 CREATE TABLE department (
     id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
     department_name VARCHAR(30) NOT NULL
