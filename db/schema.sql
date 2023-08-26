@@ -4,6 +4,7 @@ CREATE DATABASE employee_tracker;
 USE employee_tracker;
 
 CREATE TABLE department (
+    --column name, type of input(string, int, etc.), can be or not empty
     id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
     department_name VARCHAR(30) NOT NULL
 );
