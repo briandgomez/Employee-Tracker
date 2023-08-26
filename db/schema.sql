@@ -3,6 +3,7 @@ CREATE DATABASE employee_tracker;
 
 USE employee_tracker;
 
+--'id','department_name','title', etc. are all columns
 CREATE TABLE department (
     --column name, type of input(string, int, etc.), can be or not empty
     id INTEGER AUTO_INCREMENT PRIMARY KEY NOT NULL,
